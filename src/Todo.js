@@ -9,7 +9,7 @@ const Todo = ({ id, todo, remove }) => {
     <div>
       <li id={id}>
         {todo}
-        <button onClick={handleRemove}>Remove Todo</button>
+        <button onClick={handleRemove}>Remove Activity</button>
       </li>
     </div>
   );

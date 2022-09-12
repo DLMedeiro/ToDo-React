@@ -1,6 +1,13 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import TodoList from "./TodoList";
+
+function addToDo(toDoList, toDo = "Test") {
+  const toDoInput = toDoList.getByLabelText("New Activity");
+  fireEvent.change(toDoInput, { target: { value: toDo } });
+  const button = toDoList.getByText("Add New Item");
+  fireEvent.click(button);
+}
 
 test("it renders without crashing", () => {
   render(<TodoList />);
@@ -12,7 +19,23 @@ it("matches snapshot", function () {
 });
 
 // Expect the form to add inputs to the DOM
-it("works when a new toDo is added", function () {});
+it("can add a new toDo item", function () {
+  const toDoList = render(<TodoList />);
+
+  // no activities yet
+  expect(toDoList.queryByText("Test")).not.toBeInTheDocument();
+
+  addToDo(toDoList);
+
+  // expect to see activity input
+  const removeButton = toDoList.getByText("Remove Activity");
+  expect(removeButton).toBeInTheDocument();
+  const activity = toDoList.getByText("Test");
+  //   expect(removeButton.previousSibling).toContainHTML("<li>Test</li>");
+  expect(activity).toBeInTheDocument();
+  // expect form to be empty
+  expect(toDoList.getAllByDisplayValue("")).toHaveLength(1);
+});
 // Expect selected item to be removed from the DOM
 it("works when a toDo is deleted", function () {});
 // Expect an error to show when the form is submitted without a task entered

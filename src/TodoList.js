@@ -4,10 +4,11 @@ import Todo from "./Todo";
 import { v4 } from "uuid";
 
 const TodoList = () => {
-  const INITIAL_STATE = [
-    { id: v4(), todo: "Learn React" },
-    { id: v4(), todo: "Clean Kitchen" },
-  ];
+  //   const INITIAL_STATE = [
+  //     { id: v4(), todo: "Learn React" },
+  //     { id: v4(), todo: "Clean Kitchen" },
+  //   ];
+  const INITIAL_STATE = [];
 
   const [todos, setTodos] = useState(INITIAL_STATE);
   const addItem = (id, todo) => {

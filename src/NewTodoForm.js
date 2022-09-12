@@ -34,7 +34,7 @@ const NewTodoForm = ({ addItem }) => {
         value={formData.id}
         onChange={handleChange}
       /> */}
-      <label htmlFor="todo">todo</label>
+      <label htmlFor="todo">New Activity</label>
       <input
         id="todo"
         type="text"
@@ -45,7 +45,7 @@ const NewTodoForm = ({ addItem }) => {
       />
       {/* <p>{formData.id}</p> */}
       <p>{formData.todo}</p>
-      <button>Add Todo Item</button>
+      <button>Add New Item</button>
     </form>
   );
 };
