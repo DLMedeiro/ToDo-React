@@ -1,6 +1,8 @@
 # React ToDo List
 Application allows users to see, add, _edit_, and remove todos.
 
+__Check it out at:__ https://dlmedeiro.github.io/ToDo-React/
+
 ## Components
 
 __App:__ Renders the TodoList component
