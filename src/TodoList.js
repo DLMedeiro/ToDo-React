@@ -11,6 +11,7 @@ const TodoList = () => {
   const INITIAL_STATE = [];
 
   const [todos, setTodos] = useState(INITIAL_STATE);
+
   const addItem = (id, todo) => {
     setTodos((todos) => [...todos, { id, todo }]);
   };
