@@ -19,8 +19,12 @@ const NewTodoForm = ({ addItem }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addItem(v4(), formData.todo);
-    setFormData(INITIAL_STATE);
+    if (formData.todo === "") {
+      alert("Please enter an activity");
+    } else {
+      addItem(v4(), formData.todo);
+      setFormData(INITIAL_STATE);
+    }
   };
 
   return (
