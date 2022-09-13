@@ -52,4 +52,12 @@ it("works when a toDo is deleted", function () {
 });
 
 // Expect alert to show when the form is submitted without a task entered
-it("works when an incorrect input is provided", function () {});
+it("works when an incorrect input is provided", function () {
+  const { queryByText, getByLabelText } = render(<TodoList />);
+  const input = getByLabelText("New Activity");
+  const btn = queryByText("Add New Item");
+  expect(queryByText("todo: ")).not.toBeInTheDocument();
+  fireEvent.change(input, { target: { value: "" } });
+  fireEvent.click(btn);
+  expect(queryByText("todo: ")).not.toBeInTheDocument();
+});
